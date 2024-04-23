@@ -1,0 +1,40 @@
+{
+    "intents": [
+      {
+        "tag": "start_car_selection",
+        "patterns": ["I want to buy a car", "I'm looking for a car", "Show me some cars"],
+        "responses": ["Great! Are you interested in a specific type of car? Electric, Diesel, Hybrid, or Gasoline?"],
+        "context_set": "car_selection_started"
+      },
+      {
+        "tag": "car_type",
+        "patterns": ["Electric", "Diesel", "Hybrid", "Gasoline"],
+        "responses": ["Nice choice! Any particular brand you have in mind?"],
+        "context_filter": "car_selection_started",
+        "context_set": "car_type_selected"
+      },
+      {
+        "tag": "car_brand",
+        "patterns": ["Toyota", "BMW", "Tesla", "Mercedes"],
+        "responses": ["A great brand! Do you have a budget in mind?"],
+        "context_filter": "car_type_selected",
+        "context_set": "car_brand_selected"
+      },
+      {
+        "tag": "no_brand_preference",
+        "patterns": ["Any brand", "No preference", "Doesn't matter", "Whatever", "You choose"],
+        "responses": ["Okay, I'll look at a range of brands. What about the car's budget?"],
+        "context_filter": "car_type_selected",
+        "context_set": "car_brand_any"
+      },
+      {
+        "tag": "specific_car_query",
+        "patterns": ["I am looking for a 2020 Tesla", "Show me a diesel BMW", "I need a hybrid car under $30000"],
+        "responses": ["Let me find the perfect car for you based on your requirements."],
+        "context_set": "specific_car_query"
+      }
+      
+      
+    ]
+  }
+  

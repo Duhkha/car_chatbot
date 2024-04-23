@@ -1,0 +1,128 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Hi", "Hello", "Is anyone there?", "Good day"],
+            "responses": ["Hello! How can I assist you in finding the perfect car today?"],
+            "context_set": "vehicle_search"
+        },
+        {
+            "tag": "vehicle_search",
+            "patterns": ["I'm looking for a car", "I need a vehicle", "I'm interested in buying a car"],
+            "responses": ["Fantastic! Do you have a specific type in mind, like Electric, Diesel, Hybrid, or Gasoline?"],
+            "context_set": "ask_fuel_type"
+        },
+        {
+            "tag": "fuel_type_electric",
+            "patterns": ["Electric", "I want an electric car", "Only electric"],
+            "responses": ["Electric, a great choice! Are you interested in any specific brands or models?"],
+            "context_set": "electric_cars"
+        },
+        {
+            "tag": "fuel_type_diesel",
+            "patterns": ["Diesel", "I am looking for a diesel car", "Prefer diesel"],
+            "responses": ["Diesel, noted. Any particular brand or model you have in mind?"],
+            "context_set": "diesel_cars"
+        },
+        {
+            "tag": "fuel_type_hybrid",
+            "patterns": ["Hybrid", "Looking for a hybrid", "I prefer hybrid cars"],
+            "responses": ["Hybrids are a good balance of efficiency and performance. Which brands are you interested in?"],
+            "context_set": "hybrid_cars"
+        },
+        {
+            "tag": "fuel_type_gasoline",
+            "patterns": ["Gasoline", "I want a gasoline car", "Prefer gasoline"],
+            "responses": ["Gasoline, a classic choice. Do you have any specific brands or models in mind?"],
+            "context_set": "gasoline_cars"
+        },
+        {
+            "tag": "brand_preference",
+            "patterns": ["I like Toyota", "I'm interested in BMW", "Looking for a Tesla"],
+            "responses": ["Great choice! Are you looking for an Automatic or Manual transmission?"],
+            "context_set": "ask_transmission_type"
+        },
+        {
+            "tag": "brand_no_preference",
+            "patterns": ["Any brand", "Anything", "Whatever", "No preference", "You choose"],
+            "responses": ["Okay, I'll look at a range of brands. What about the transmission type - Automatic or Manual?"],
+            "context_set": "ask_transmission_type"
+        },
+        {
+            "tag": "transmission_type_automatic",
+            "patterns": ["Automatic", "Prefer automatic transmission", "Automatic cars"],
+            "responses": ["Automatic transmission is very convenient. What is your budget range, or is there a specific year you're looking for?"],
+            "context_set": "ask_price_year"
+        },
+        {
+            "tag": "transmission_type_manual",
+            "patterns": ["Manual", "I like manual cars", "Manual transmission"],
+            "responses": ["Manual transmission offers a more engaged driving experience. Do you have a price range in mind, or are you looking for a specific year?"],
+            "context_set": "ask_price_year"
+        },
+        {
+            "tag": "specific_preferences",
+            "patterns": ["I have a budget of $30,000", "Looking for something newer than 2018", "Prefer cars around $20,000"],
+            "responses": ["Understood. Are there any specific features you are interested in, like safety, comfort, or multimedia options?"],
+            "context_set": "ask_specific_features"
+        },
+        {
+            "tag": "feature_safety",
+            "patterns": ["Safety features", "I want a safe car", "Tell me about safety"],
+            "responses": ["Safety is our priority. We have cars with airbags, lane assist, collision warning systems, and more. What are you looking for specifically?"],
+            "context_set": "safety_features"
+        },
+        {
+            "tag": "feature_comfort",
+            "patterns": ["Comfort features", "I want comfortable cars", "Tell me about comfort options"],
+            "responses": ["Comfort is key. We offer cars with leather seats, climate control, heated seats, and more. Any particular comfort features you want?"],
+            "context_set": "comfort_features"
+        },
+        {
+            "tag": "feature_multimedia",
+            "patterns": ["Multimedia options", "Entertainment features", "Tell me about multimedia"],
+            "responses": ["For entertainment and connectivity, we have Bluetooth, navigation systems, Apple CarPlay, and more. What type of multimedia features are you interested in?"],
+            "context_set": "multimedia_features"
+        },
+        {
+            "tag": "ask_fuel_efficiency",
+            "patterns": ["I need a fuel-efficient car", "What about the fuel consumption?", "Looking for good fuel economy"],
+            "responses": ["Do you have a preferred fuel efficiency range, like less than 5 l/100km or over 20 km/l?"],
+            "context_set": "fuel_efficiency_inquiry"
+        },
+        {
+            "tag": "specific_fuel_efficiency",
+            "patterns": ["I want something under 5 l/100km", "Something over 20 km/l", "Fuel efficiency is important"],
+            "responses": ["I'll find cars that match your fuel efficiency requirements. Any other specific features or preferences?"],
+            "context_set": "final_preferences"
+        },
+        {
+            "tag": "show_matching_cars",
+            "patterns": ["Show me the options", "What cars match my criteria?", "Can you suggest some cars?"],
+            "responses": ["Based on your preferences, here are some cars that might interest you: [Dynamic car suggestions]"],
+            "context_filter": ["electric_cars", "diesel_cars", "hybrid_cars", "gasoline_cars", "safety_features", "comfort_features", "multimedia_features", "fuel_efficiency_inquiry"]
+        },
+        {
+            "tag": "direct_car_request",
+            "patterns": ["I want a 2015 BMW X5", "Show me a 2018 Tesla Model 3", "Do you have a 2020 Audi A4?"],
+            "responses": ["Let me check the availability of that model. One moment, please."],
+            "context_set": "specific_car_search"
+        },
+        {
+            "tag": "no_preference",
+            "patterns": ["Whatever", "Any", "Doesn't matter", "No preference", "You choose"],
+            "responses": ["Got it, I'll consider a range of options for you."],
+            "context_set": "no_preference"
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Bye", "See you later", "Goodbye"],
+            "responses": ["Goodbye! If you have any more questions, feel free to ask."]
+        },
+        {
+            "tag": "fallback",
+            "patterns": [""],
+            "responses": ["I'm not sure I understand. Could you please specify what you're looking for in a car?"]
+        }
+    ]
+}
